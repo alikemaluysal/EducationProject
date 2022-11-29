@@ -15,6 +15,8 @@ namespace Persistence.DataContext
         }
 
 
+
+
         public DbSet<Classroom> Classrooms { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Department> Departments { get; set; }
@@ -22,6 +24,10 @@ namespace Persistence.DataContext
         public DbSet<Instructor> Instructors { get; set; }
         public DbSet<Staff> Staff { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Teaches> Teaches { get; set; }
+        public DbSet<Takes> Takes { get; set; }
     }
+
+    
 
 }

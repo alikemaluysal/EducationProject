@@ -7,7 +7,8 @@ namespace Persistence.ServiceRegistration
     {
         public static void AddPersistenceServices(this IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer("Server=TEDESCO420\\SQL2019;Database=EducationProjectDb;User Id=sa;Password=qwerr112358;TrustServerCertificate=True"));
+            //services.AddDbContext<AppDbContext>(options => options.UseSqlServer("Server=TEDESCO420\\SQL2019;Database=EducationProjectDb;User Id=sa;Password=qwerr112358;TrustServerCertificate=True"));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(@"Server=(localdb)\(localdb)\MSSQLLocalDB;Database=EducationProjectDb; Trusted_Connection=True;"));
         }
     }
 }

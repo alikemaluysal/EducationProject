@@ -2,7 +2,7 @@
 {
     public class Staff : Person
     {
-        public int PersonId { get; set; }
-        public Person Person { get; set; }
+        //public int PersonId { get; set; }
+        //public Person Person { get; set; }
     }
 }
