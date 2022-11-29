@@ -1,6 +1,6 @@
 ﻿namespace Domain.Entities
 {
-    internal class Staff
+    public class Staff
     {
     }
 }

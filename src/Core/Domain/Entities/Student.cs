@@ -7,10 +7,9 @@ namespace Domain.Entities
         public string Address { get; set; }
         public string MobilePhone { get; set; }
 
-        public string ParentName { get; set; }
-        //parent entity
         public ICollection<Grade> ExamGrades { get; set; }
         //note entity
+        public ICollection<Course> Courses { get; set; }
 
     }
 }
