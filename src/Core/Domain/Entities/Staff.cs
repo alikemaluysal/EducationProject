@@ -1,6 +1,8 @@
 ﻿namespace Domain.Entities
 {
-    internal class Staff
+    public class Staff
     {
+        public int PersonId { get; set; }
+        public Person Person { get; set; }
     }
 }

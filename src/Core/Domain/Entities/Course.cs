@@ -9,5 +9,7 @@ namespace Domain.Entities
         public string Description { get; set; }
         public int DepartmentId { get; set; }
         public Department Department { get; set; }
+        public int ExamId { get; set; }
+        public Exam Exam { get; set; }
     }
 }

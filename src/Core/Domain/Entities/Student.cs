@@ -12,5 +12,7 @@ namespace Domain.Entities
         public ICollection<Grade> ExamGrades { get; set; }
         //note entity
 
+        public int PersonId { get; set; }
+        public Person Person { get; set; }
     }
 }
