@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Base
+﻿namespace Domain.Base
 {
-    public class Entity
+    public abstract class Entity
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
 
@@ -16,7 +10,7 @@ namespace Domain.Base
         {
         }
 
-        public Entity(int id) : this()
+        public Entity(Guid id) : this()
         {
             Id = id;
         }
