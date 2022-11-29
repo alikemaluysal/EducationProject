@@ -1,8 +1,9 @@
-﻿namespace Domain.Entities
+﻿using Domain.Base;
+
+namespace Domain.Entities
 {
-    public class Classroom
+    public class Classroom : Entity
     {
         public string ClassroomCode { get; set; }
-
     }
 }

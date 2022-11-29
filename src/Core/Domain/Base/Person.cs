@@ -1,10 +1,5 @@
 ﻿using Domain.Base;
 using Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
@@ -12,8 +7,11 @@ namespace Domain.Entities
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string NationalId { get; set; }
+        public string SocialSecurityNumber { get; set; }
         public Gender Gender { get; set; }
         public DateTime BirthDate { get; set; }
+        //TODO public Address Address { get; set; }
+        public string Address { get; set; }
+        public string MobileNumber { get; set; }
     }
 }

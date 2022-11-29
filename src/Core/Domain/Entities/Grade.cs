@@ -1,10 +1,13 @@
-﻿namespace Domain.Entities
+﻿using Domain.Base;
+
+namespace Domain.Entities
 {
-    public class Grade
+    public class Grade : Entity
     {
-        public string ExamNote { get; set; }
+        public int NumericGrade { get; set; }
+        public string LetterGrade { get; set; }
         //enum?
-        public Course Course { get; set; }
+        public virtual Course Course { get; set; }
         //public Exam Exam { get; set; }
 
     }

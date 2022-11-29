@@ -1,8 +1,8 @@
 ﻿namespace Domain.Base
 {
-    public class Entity
+    public abstract class Entity
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
 
@@ -10,7 +10,7 @@
         {
         }
 
-        public Entity(int id) : this()
+        public Entity(Guid id) : this()
         {
             Id = id;
         }
