@@ -5,7 +5,7 @@ namespace Domain.Entities
         public int StudentNo {get; set;}
        public string Name {get; set;}
        public string Address {get; set;}
-       public string Mobile
+       public string MobileNumber {get; set;}
 
        public string ParentName {get; set;}
        //parent entity
