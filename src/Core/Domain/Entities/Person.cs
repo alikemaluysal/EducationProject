@@ -1,4 +1,5 @@
 ﻿using Domain.Base;
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,10 @@ namespace Domain.Entities
 {
     public class Person : Entity
     {
-        public int FirstName { get; set; }
-        public int LastName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string NationalId { get; set; }
+        public Gender Gender { get; set; }
         public DateTime BirthDate { get; set; }
     }
 }
