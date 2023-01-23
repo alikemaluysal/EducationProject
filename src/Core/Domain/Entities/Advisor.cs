@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Base;
 
 namespace Domain.Entities;
 
-public partial class Advisor
+public partial class Advisor : Entity
 {
-    public int Id { get; set; }
 
-    public int? StudentId { get; set; }
+    public Guid? StudentId { get; set; }
 
-    public int? TeacherId { get; set; }
+    public Guid? TeacherId { get; set; }
 
     public virtual Student? Student { get; set; }
 

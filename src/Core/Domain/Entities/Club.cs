@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Base;
 
 namespace Domain.Entities;
 
-public partial class Club
+public partial class Club : Entity
 {
-    public int Id { get; set; }
 
     public string Name { get; set; } = null!;
 
     public string Description { get; set; } = null!;
 
-    public int? President { get; set; }
+    public Guid? PresidentId { get; set; }
 
     public virtual ICollection<ClubMembership> ClubMemberships { get; } = new List<ClubMembership>();
 

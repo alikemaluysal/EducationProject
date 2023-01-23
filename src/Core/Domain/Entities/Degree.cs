@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Base;
 
 namespace Domain.Entities;
 
-public partial class Degree
+public partial class Degree : Entity
 {
-    public int Id { get; set; }
 
     public string Name { get; set; } = null!;
 
-    public int? Department { get; set; }
+    public Guid? DepartmentId { get; set; }
 
     public virtual ICollection<DegreeRequirement> DegreeRequirements { get; } = new List<DegreeRequirement>();
 

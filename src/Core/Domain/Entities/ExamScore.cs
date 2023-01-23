@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Base;
 
 namespace Domain.Entities;
 
-public partial class ExamScore
+public partial class ExamScore : Entity
 {
-    public int Id { get; set; }
 
-    public int? StudentId { get; set; }
+    public Guid? StudentId { get; set; }
 
-    public int? ExamId { get; set; }
+    public Guid? ExamId { get; set; }
 
     public decimal Score { get; set; }
 

@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Base;
 
 namespace Domain.Entities;
 
-public partial class Course
+public partial class Course : Entity
 {
-    public int Id { get; set; }
 
     public string Name { get; set; } = null!;
 
-    public int? Instructor { get; set; }
+    public Guid? InstructorId { get; set; }
 
     public int Credits { get; set; }
 

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class _001initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,7 +15,7 @@ namespace Persistence.Migrations
                 name: "Departments",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     name = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false)
                 },
                 constraints: table =>
@@ -27,7 +27,7 @@ namespace Persistence.Migrations
                 name: "Events",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     name = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
                     description = table.Column<string>(type: "text", nullable: false),
                     date = table.Column<DateTime>(type: "date", nullable: false),
@@ -44,9 +44,9 @@ namespace Persistence.Migrations
                 name: "Degrees",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     name = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
-                    department = table.Column<int>(type: "int", nullable: true)
+                    department = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -62,12 +62,12 @@ namespace Persistence.Migrations
                 name: "Teachers",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     firstname = table.Column<string>(name: "first_name", type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
                     lastname = table.Column<string>(name: "last_name", type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
                     email = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
                     phone = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
-                    department = table.Column<int>(type: "int", nullable: true)
+                    department = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -83,13 +83,13 @@ namespace Persistence.Migrations
                 name: "Students",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     firstname = table.Column<string>(name: "first_name", type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
                     lastname = table.Column<string>(name: "last_name", type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
                     email = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
                     phone = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
-                    major = table.Column<int>(type: "int", nullable: true),
-                    degree = table.Column<int>(type: "int", nullable: true)
+                    major = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    degree = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -110,9 +110,9 @@ namespace Persistence.Migrations
                 name: "Courses",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     name = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
-                    instructor = table.Column<int>(type: "int", nullable: true),
+                    instructor = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     credits = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -129,9 +129,9 @@ namespace Persistence.Migrations
                 name: "Advisors",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    studentid = table.Column<int>(name: "student_id", type: "int", nullable: true),
-                    teacherid = table.Column<int>(name: "teacher_id", type: "int", nullable: true)
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    studentid = table.Column<Guid>(name: "student_id", type: "uniqueidentifier", nullable: true),
+                    teacherid = table.Column<Guid>(name: "teacher_id", type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -152,10 +152,10 @@ namespace Persistence.Migrations
                 name: "Clubs",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     name = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
                     description = table.Column<string>(type: "text", nullable: false),
-                    president = table.Column<int>(type: "int", nullable: true)
+                    president = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -171,8 +171,8 @@ namespace Persistence.Migrations
                 name: "FinancialAid",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    studentid = table.Column<int>(name: "student_id", type: "int", nullable: true),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    studentid = table.Column<Guid>(name: "student_id", type: "uniqueidentifier", nullable: true),
                     type = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
                     amount = table.Column<decimal>(type: "decimal(18,0)", nullable: false),
                     startdate = table.Column<DateTime>(name: "start_date", type: "date", nullable: false),
@@ -192,8 +192,8 @@ namespace Persistence.Migrations
                 name: "Housing",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    studentid = table.Column<int>(name: "student_id", type: "int", nullable: true),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    studentid = table.Column<Guid>(name: "student_id", type: "uniqueidentifier", nullable: true),
                     type = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
                     roomnumber = table.Column<int>(name: "room_number", type: "int", nullable: false),
                     startdate = table.Column<DateTime>(name: "start_date", type: "date", nullable: false),
@@ -213,8 +213,8 @@ namespace Persistence.Migrations
                 name: "MealPlans",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    studentid = table.Column<int>(name: "student_id", type: "int", nullable: true),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    studentid = table.Column<Guid>(name: "student_id", type: "uniqueidentifier", nullable: true),
                     type = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
                     startdate = table.Column<DateTime>(name: "start_date", type: "date", nullable: false),
                     enddate = table.Column<DateTime>(name: "end_date", type: "date", nullable: true)
@@ -233,9 +233,9 @@ namespace Persistence.Migrations
                 name: "Announcements",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    courseid = table.Column<int>(name: "course_id", type: "int", nullable: true),
-                    teacherid = table.Column<int>(name: "teacher_id", type: "int", nullable: true),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    courseid = table.Column<Guid>(name: "course_id", type: "uniqueidentifier", nullable: true),
+                    teacherid = table.Column<Guid>(name: "teacher_id", type: "uniqueidentifier", nullable: true),
                     title = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
                     message = table.Column<string>(type: "text", nullable: false),
                     date = table.Column<DateTime>(type: "date", nullable: false)
@@ -259,8 +259,8 @@ namespace Persistence.Migrations
                 name: "BookstoreInventory",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    courseid = table.Column<int>(name: "course_id", type: "int", nullable: true),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    courseid = table.Column<Guid>(name: "course_id", type: "uniqueidentifier", nullable: true),
                     name = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
                     description = table.Column<string>(type: "text", nullable: false),
                     author = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: true),
@@ -282,9 +282,9 @@ namespace Persistence.Migrations
                 name: "BookstoreOrders",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    studentid = table.Column<int>(name: "student_id", type: "int", nullable: true),
-                    courseid = table.Column<int>(name: "course_id", type: "int", nullable: true),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    studentid = table.Column<Guid>(name: "student_id", type: "uniqueidentifier", nullable: true),
+                    courseid = table.Column<Guid>(name: "course_id", type: "uniqueidentifier", nullable: true),
                     date = table.Column<DateTime>(type: "date", nullable: false),
                     total = table.Column<decimal>(type: "decimal(18,0)", nullable: false)
                 },
@@ -307,8 +307,8 @@ namespace Persistence.Migrations
                 name: "Classes",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    courseid = table.Column<int>(name: "course_id", type: "int", nullable: true),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    courseid = table.Column<Guid>(name: "course_id", type: "uniqueidentifier", nullable: true),
                     semester = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
                     year = table.Column<int>(type: "int", nullable: false)
                 },
@@ -326,9 +326,9 @@ namespace Persistence.Migrations
                 name: "DegreeRequirements",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    degree = table.Column<int>(type: "int", nullable: true),
-                    courseid = table.Column<int>(name: "course_id", type: "int", nullable: true)
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    degree = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    courseid = table.Column<Guid>(name: "course_id", type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -349,8 +349,8 @@ namespace Persistence.Migrations
                 name: "Exams",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    courseid = table.Column<int>(name: "course_id", type: "int", nullable: true),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    courseid = table.Column<Guid>(name: "course_id", type: "uniqueidentifier", nullable: true),
                     type = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
                     date = table.Column<DateTime>(type: "date", nullable: false),
                     starttime = table.Column<TimeSpan>(name: "start_time", type: "time", nullable: false),
@@ -371,8 +371,8 @@ namespace Persistence.Migrations
                 name: "Resources",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    courseid = table.Column<int>(name: "course_id", type: "int", nullable: true),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    courseid = table.Column<Guid>(name: "course_id", type: "uniqueidentifier", nullable: true),
                     name = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
                     link = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false)
                 },
@@ -390,9 +390,9 @@ namespace Persistence.Migrations
                 name: "ClubMembership",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    studentid = table.Column<int>(name: "student_id", type: "int", nullable: true),
-                    clubid = table.Column<int>(name: "club_id", type: "int", nullable: true)
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    studentid = table.Column<Guid>(name: "student_id", type: "uniqueidentifier", nullable: true),
+                    clubid = table.Column<Guid>(name: "club_id", type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -413,9 +413,9 @@ namespace Persistence.Migrations
                 name: "Attendance",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    studentid = table.Column<int>(name: "student_id", type: "int", nullable: true),
-                    classid = table.Column<int>(name: "class_id", type: "int", nullable: true),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    studentid = table.Column<Guid>(name: "student_id", type: "uniqueidentifier", nullable: true),
+                    classid = table.Column<Guid>(name: "class_id", type: "uniqueidentifier", nullable: true),
                     date = table.Column<DateTime>(type: "date", nullable: false),
                     present = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -438,9 +438,9 @@ namespace Persistence.Migrations
                 name: "ExamScores",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    studentid = table.Column<int>(name: "student_id", type: "int", nullable: true),
-                    examid = table.Column<int>(name: "exam_id", type: "int", nullable: true),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    studentid = table.Column<Guid>(name: "student_id", type: "uniqueidentifier", nullable: true),
+                    examid = table.Column<Guid>(name: "exam_id", type: "uniqueidentifier", nullable: true),
                     score = table.Column<decimal>(type: "decimal(18,0)", nullable: false)
                 },
                 constraints: table =>

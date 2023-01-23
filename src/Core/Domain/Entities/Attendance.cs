@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Base;
 
 namespace Domain.Entities;
 
-public partial class Attendance
+public partial class Attendance : Entity
 {
-    public int Id { get; set; }
 
-    public int? StudentId { get; set; }
+    public Guid? StudentId { get; set; }
 
-    public int? ClassId { get; set; }
+    public Guid? ClassId { get; set; }
 
     public DateTime Date { get; set; }
 

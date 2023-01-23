@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Base;
 
 namespace Domain.Entities;
 
-public partial class Teacher
+public partial class Teacher : Entity
 {
-    public int Id { get; set; }
 
     public string FirstName { get; set; } = null!;
 
@@ -15,7 +13,7 @@ public partial class Teacher
 
     public string Phone { get; set; } = null!;
 
-    public int? Department { get; set; }
+    public Guid? DepartmentId { get; set; }
 
     public virtual ICollection<Advisor> Advisors { get; } = new List<Advisor>();
 

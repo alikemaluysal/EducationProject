@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Base;
 
 namespace Domain.Entities;
 
-public partial class Announcement
+public partial class Announcement : Entity
 {
-    public int Id { get; set; }
 
-    public int? CourseId { get; set; }
+    public Guid? CourseId { get; set; }
 
-    public int? TeacherId { get; set; }
+    public Guid? TeacherId { get; set; }
 
     public string Title { get; set; } = null!;
 

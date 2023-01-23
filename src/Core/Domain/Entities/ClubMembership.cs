@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Base;
 
 namespace Domain.Entities;
 
-public partial class ClubMembership
+public partial class ClubMembership : Entity
 {
-    public int Id { get; set; }
 
-    public int? StudentId { get; set; }
+    public Guid? StudentId { get; set; }
 
-    public int? ClubId { get; set; }
+    public Guid? ClubId { get; set; }
 
     public virtual Club? Club { get; set; }
 

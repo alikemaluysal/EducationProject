@@ -7,10 +7,12 @@ namespace Persistence.ServiceRegistration
     public static class ServiceRegistration
     {
 
-        public static void AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
+        public static void AddPersistenceServices(this IServiceCollection services)
         {
             //services.AddDbContext<AppDbContext>(options => options.UseSqlServer("Server=TEDESCO420\\SQL2019;Database=EducationProjectDb;User Id=sa;Password=qwerr112358;TrustServerCertificate=True"));
-            services.AddDbContext<UniDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnnectionString")));
+            ConfigurationManager manager = new();
+            services.AddDbContext<UniDbContext>(options => options.UseSqlServer(manager.GetConnectionString("DefaultConnnectionString"))); ""
+
         }
     }
 }

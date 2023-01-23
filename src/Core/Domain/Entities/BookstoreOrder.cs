@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Base;
 
 namespace Domain.Entities;
 
-public partial class BookstoreOrder
+public partial class BookstoreOrder : Entity
 {
-    public int Id { get; set; }
 
-    public int? StudentId { get; set; }
+    public Guid? StudentId { get; set; }
 
-    public int? CourseId { get; set; }
+    public Guid? CourseId { get; set; }
 
     public DateTime Date { get; set; }
 

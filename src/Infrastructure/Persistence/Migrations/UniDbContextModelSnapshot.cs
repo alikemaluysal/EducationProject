@@ -24,16 +24,16 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Advisor", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
-                    b.Property<int?>("StudentId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("StudentId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("student_id");
 
-                    b.Property<int?>("TeacherId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("TeacherId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("teacher_id");
 
                     b.HasKey("Id")
@@ -48,12 +48,12 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Announcement", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
-                    b.Property<int?>("CourseId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("CourseId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("course_id");
 
                     b.Property<DateTime>("Date")
@@ -65,8 +65,8 @@ namespace Persistence.Migrations
                         .HasColumnType("text")
                         .HasColumnName("message");
 
-                    b.Property<int?>("TeacherId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("TeacherId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("teacher_id");
 
                     b.Property<string>("Title")
@@ -88,12 +88,12 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Attendance", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
-                    b.Property<int?>("ClassId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("ClassId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("class_id");
 
                     b.Property<DateTime>("Date")
@@ -104,8 +104,8 @@ namespace Persistence.Migrations
                         .HasColumnType("bit")
                         .HasColumnName("present");
 
-                    b.Property<int?>("StudentId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("StudentId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("student_id");
 
                     b.HasKey("Id")
@@ -120,8 +120,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.BookstoreInventory", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
                     b.Property<string>("Author")
@@ -130,8 +130,8 @@ namespace Persistence.Migrations
                         .HasColumnType("varchar(255)")
                         .HasColumnName("author");
 
-                    b.Property<int?>("CourseId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("CourseId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("course_id");
 
                     b.Property<string>("Description")
@@ -170,20 +170,20 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.BookstoreOrder", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
-                    b.Property<int?>("CourseId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("CourseId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("course_id");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("date")
                         .HasColumnName("date");
 
-                    b.Property<int?>("StudentId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("StudentId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("student_id");
 
                     b.Property<decimal>("Total")
@@ -202,12 +202,12 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Class", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
-                    b.Property<int?>("CourseId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("CourseId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("course_id");
 
                     b.Property<string>("Semester")
@@ -231,8 +231,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Club", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
                     b.Property<string>("Description")
@@ -247,30 +247,30 @@ namespace Persistence.Migrations
                         .HasColumnType("varchar(255)")
                         .HasColumnName("name");
 
-                    b.Property<int?>("President")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("PresidentId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("president");
 
                     b.HasKey("Id")
                         .HasName("PK__Clubs__3213E83F21050034");
 
-                    b.HasIndex("President");
+                    b.HasIndex("PresidentId");
 
                     b.ToTable("Clubs");
                 });
 
             modelBuilder.Entity("Domain.Entities.ClubMembership", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
-                    b.Property<int?>("ClubId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("ClubId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("club_id");
 
-                    b.Property<int?>("StudentId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("StudentId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("student_id");
 
                     b.HasKey("Id")
@@ -285,16 +285,16 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Course", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
                     b.Property<int>("Credits")
                         .HasColumnType("int")
                         .HasColumnName("credits");
 
-                    b.Property<int?>("Instructor")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("InstructorId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("instructor");
 
                     b.Property<string>("Name")
@@ -307,19 +307,19 @@ namespace Persistence.Migrations
                     b.HasKey("Id")
                         .HasName("PK__Courses__3213E83FDF56B220");
 
-                    b.HasIndex("Instructor");
+                    b.HasIndex("InstructorId");
 
                     b.ToTable("Courses");
                 });
 
             modelBuilder.Entity("Domain.Entities.Degree", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
-                    b.Property<int?>("Department")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("DepartmentId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("department");
 
                     b.Property<string>("Name")
@@ -332,23 +332,23 @@ namespace Persistence.Migrations
                     b.HasKey("Id")
                         .HasName("PK__Degrees__3213E83FBCAAF6D5");
 
-                    b.HasIndex("Department");
+                    b.HasIndex("DepartmentId");
 
                     b.ToTable("Degrees");
                 });
 
             modelBuilder.Entity("Domain.Entities.DegreeRequirement", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
-                    b.Property<int?>("CourseId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("CourseId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("course_id");
 
-                    b.Property<int?>("Degree")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("DegreeId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("degree");
 
                     b.HasKey("Id")
@@ -356,15 +356,15 @@ namespace Persistence.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.HasIndex("Degree");
+                    b.HasIndex("DegreeId");
 
                     b.ToTable("DegreeRequirements");
                 });
 
             modelBuilder.Entity("Domain.Entities.Department", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
                     b.Property<string>("Name")
@@ -382,8 +382,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Event", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
                     b.Property<DateTime>("Date")
@@ -425,12 +425,12 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Exam", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
-                    b.Property<int?>("CourseId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("CourseId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("course_id");
 
                     b.Property<DateTime>("Date")
@@ -469,20 +469,20 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.ExamScore", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
-                    b.Property<int?>("ExamId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("ExamId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("exam_id");
 
                     b.Property<decimal>("Score")
                         .HasColumnType("decimal(18, 0)")
                         .HasColumnName("score");
 
-                    b.Property<int?>("StudentId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("StudentId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("student_id");
 
                     b.HasKey("Id")
@@ -497,8 +497,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.FinancialAid", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
                     b.Property<decimal>("Amount")
@@ -513,8 +513,8 @@ namespace Persistence.Migrations
                         .HasColumnType("date")
                         .HasColumnName("start_date");
 
-                    b.Property<int?>("StudentId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("StudentId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("student_id");
 
                     b.Property<string>("Type")
@@ -534,8 +534,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Housing", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
                     b.Property<DateTime?>("EndDate")
@@ -550,8 +550,8 @@ namespace Persistence.Migrations
                         .HasColumnType("date")
                         .HasColumnName("start_date");
 
-                    b.Property<int?>("StudentId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("StudentId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("student_id");
 
                     b.Property<string>("Type")
@@ -571,8 +571,8 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.MealPlan", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
                     b.Property<DateTime?>("EndDate")
@@ -583,8 +583,8 @@ namespace Persistence.Migrations
                         .HasColumnType("date")
                         .HasColumnName("start_date");
 
-                    b.Property<int?>("StudentId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("StudentId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("student_id");
 
                     b.Property<string>("Type")
@@ -604,12 +604,12 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Resource", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
-                    b.Property<int?>("CourseId")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("CourseId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("course_id");
 
                     b.Property<string>("Link")
@@ -636,12 +636,12 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Student", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
-                    b.Property<int?>("Degree")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("DegreeId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("degree");
 
                     b.Property<string>("Email")
@@ -665,8 +665,8 @@ namespace Persistence.Migrations
                         .HasColumnType("varchar(255)")
                         .HasColumnName("last_name");
 
-                    b.Property<int?>("Major")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("MajorDepartmentId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("major");
 
                     b.Property<string>("Phone")
@@ -679,21 +679,21 @@ namespace Persistence.Migrations
                     b.HasKey("Id")
                         .HasName("PK__Students__3213E83FDE006724");
 
-                    b.HasIndex("Degree");
+                    b.HasIndex("DegreeId");
 
-                    b.HasIndex("Major");
+                    b.HasIndex("MajorDepartmentId");
 
                     b.ToTable("Students");
                 });
 
             modelBuilder.Entity("Domain.Entities.Teacher", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int")
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
 
-                    b.Property<int?>("Department")
-                        .HasColumnType("int")
+                    b.Property<Guid?>("DepartmentId")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("department");
 
                     b.Property<string>("Email")
@@ -727,7 +727,7 @@ namespace Persistence.Migrations
                     b.HasKey("Id")
                         .HasName("PK__Teachers__3213E83FF2FBF0BC");
 
-                    b.HasIndex("Department");
+                    b.HasIndex("DepartmentId");
 
                     b.ToTable("Teachers");
                 });
@@ -824,7 +824,7 @@ namespace Persistence.Migrations
                 {
                     b.HasOne("Domain.Entities.Student", "PresidentNavigation")
                         .WithMany("Clubs")
-                        .HasForeignKey("President")
+                        .HasForeignKey("PresidentId")
                         .HasConstraintName("FK__Clubs__president__74AE54BC");
 
                     b.Navigation("PresidentNavigation");
@@ -851,7 +851,7 @@ namespace Persistence.Migrations
                 {
                     b.HasOne("Domain.Entities.Teacher", "InstructorNavigation")
                         .WithMany("Courses")
-                        .HasForeignKey("Instructor")
+                        .HasForeignKey("InstructorId")
                         .HasConstraintName("FK__Courses__instruc__534D60F1");
 
                     b.Navigation("InstructorNavigation");
@@ -861,7 +861,7 @@ namespace Persistence.Migrations
                 {
                     b.HasOne("Domain.Entities.Department", "DepartmentNavigation")
                         .WithMany("Degrees")
-                        .HasForeignKey("Department")
+                        .HasForeignKey("DepartmentId")
                         .HasConstraintName("FK__Degrees__departm__49C3F6B7");
 
                     b.Navigation("DepartmentNavigation");
@@ -876,7 +876,7 @@ namespace Persistence.Migrations
 
                     b.HasOne("Domain.Entities.Degree", "DegreeNavigation")
                         .WithMany("DegreeRequirements")
-                        .HasForeignKey("Degree")
+                        .HasForeignKey("DegreeId")
                         .HasConstraintName("FK__DegreeReq__degre__5DCAEF64");
 
                     b.Navigation("Course");
@@ -955,12 +955,12 @@ namespace Persistence.Migrations
                 {
                     b.HasOne("Domain.Entities.Degree", "DegreeNavigation")
                         .WithMany("Students")
-                        .HasForeignKey("Degree")
+                        .HasForeignKey("DegreeId")
                         .HasConstraintName("FK__Students__degree__4D94879B");
 
                     b.HasOne("Domain.Entities.Department", "MajorNavigation")
                         .WithMany("Students")
-                        .HasForeignKey("Major")
+                        .HasForeignKey("MajorDepartmentId")
                         .HasConstraintName("FK__Students__major__4CA06362");
 
                     b.Navigation("DegreeNavigation");
@@ -972,7 +972,7 @@ namespace Persistence.Migrations
                 {
                     b.HasOne("Domain.Entities.Department", "DepartmentNavigation")
                         .WithMany("Teachers")
-                        .HasForeignKey("Department")
+                        .HasForeignKey("DepartmentId")
                         .HasConstraintName("FK__Teachers__depart__5070F446");
 
                     b.Navigation("DepartmentNavigation");

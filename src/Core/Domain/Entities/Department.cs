@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Base;
 
 namespace Domain.Entities;
 
-public partial class Department
+public partial class Department : Entity
 {
-    public int Id { get; set; }
 
     public string Name { get; set; } = null!;
 

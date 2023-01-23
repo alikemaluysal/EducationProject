@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.DataContext;
@@ -230,10 +228,10 @@ public partial class UniDbContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("name");
-            entity.Property(e => e.President).HasColumnName("president");
+            entity.Property(e => e.PresidentId).HasColumnName("president");
 
             entity.HasOne(d => d.PresidentNavigation).WithMany(p => p.Clubs)
-                .HasForeignKey(d => d.President)
+                .HasForeignKey(d => d.PresidentId)
                 .HasConstraintName("FK__Clubs__president__74AE54BC");
         });
 
@@ -266,14 +264,14 @@ public partial class UniDbContext : DbContext
                 .ValueGeneratedNever()
                 .HasColumnName("id");
             entity.Property(e => e.Credits).HasColumnName("credits");
-            entity.Property(e => e.Instructor).HasColumnName("instructor");
+            entity.Property(e => e.InstructorId).HasColumnName("instructor");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("name");
 
             entity.HasOne(d => d.InstructorNavigation).WithMany(p => p.Courses)
-                .HasForeignKey(d => d.Instructor)
+                .HasForeignKey(d => d.InstructorId)
                 .HasConstraintName("FK__Courses__instruc__534D60F1");
         });
 
@@ -284,14 +282,14 @@ public partial class UniDbContext : DbContext
             entity.Property(e => e.Id)
                 .ValueGeneratedNever()
                 .HasColumnName("id");
-            entity.Property(e => e.Department).HasColumnName("department");
+            entity.Property(e => e.DepartmentId).HasColumnName("department");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("name");
 
             entity.HasOne(d => d.DepartmentNavigation).WithMany(p => p.Degrees)
-                .HasForeignKey(d => d.Department)
+                .HasForeignKey(d => d.DepartmentId)
                 .HasConstraintName("FK__Degrees__departm__49C3F6B7");
         });
 
@@ -303,14 +301,14 @@ public partial class UniDbContext : DbContext
                 .ValueGeneratedNever()
                 .HasColumnName("id");
             entity.Property(e => e.CourseId).HasColumnName("course_id");
-            entity.Property(e => e.Degree).HasColumnName("degree");
+            entity.Property(e => e.DegreeId).HasColumnName("degree");
 
             entity.HasOne(d => d.Course).WithMany(p => p.DegreeRequirements)
                 .HasForeignKey(d => d.CourseId)
                 .HasConstraintName("FK__DegreeReq__cours__5EBF139D");
 
             entity.HasOne(d => d.DegreeNavigation).WithMany(p => p.DegreeRequirements)
-                .HasForeignKey(d => d.Degree)
+                .HasForeignKey(d => d.DegreeId)
                 .HasConstraintName("FK__DegreeReq__degre__5DCAEF64");
         });
 
@@ -510,7 +508,7 @@ public partial class UniDbContext : DbContext
             entity.Property(e => e.Id)
                 .ValueGeneratedNever()
                 .HasColumnName("id");
-            entity.Property(e => e.Degree).HasColumnName("degree");
+            entity.Property(e => e.DegreeId).HasColumnName("degree");
             entity.Property(e => e.Email)
                 .HasMaxLength(255)
                 .IsUnicode(false)
@@ -523,18 +521,18 @@ public partial class UniDbContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("last_name");
-            entity.Property(e => e.Major).HasColumnName("major");
+            entity.Property(e => e.MajorDepartmentId).HasColumnName("major");
             entity.Property(e => e.Phone)
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("phone");
 
             entity.HasOne(d => d.DegreeNavigation).WithMany(p => p.Students)
-                .HasForeignKey(d => d.Degree)
+                .HasForeignKey(d => d.DegreeId)
                 .HasConstraintName("FK__Students__degree__4D94879B");
 
             entity.HasOne(d => d.MajorNavigation).WithMany(p => p.Students)
-                .HasForeignKey(d => d.Major)
+                .HasForeignKey(d => d.MajorDepartmentId)
                 .HasConstraintName("FK__Students__major__4CA06362");
         });
 
@@ -545,7 +543,7 @@ public partial class UniDbContext : DbContext
             entity.Property(e => e.Id)
                 .ValueGeneratedNever()
                 .HasColumnName("id");
-            entity.Property(e => e.Department).HasColumnName("department");
+            entity.Property(e => e.DepartmentId).HasColumnName("department");
             entity.Property(e => e.Email)
                 .HasMaxLength(255)
                 .IsUnicode(false)
@@ -564,7 +562,7 @@ public partial class UniDbContext : DbContext
                 .HasColumnName("phone");
 
             entity.HasOne(d => d.DepartmentNavigation).WithMany(p => p.Teachers)
-                .HasForeignKey(d => d.Department)
+                .HasForeignKey(d => d.DepartmentId)
                 .HasConstraintName("FK__Teachers__depart__5070F446");
         });
 
