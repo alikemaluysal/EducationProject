@@ -11,7 +11,8 @@ namespace Persistence.ServiceRegistration
         {
             //services.AddDbContext<AppDbContext>(options => options.UseSqlServer("Server=TEDESCO420\\SQL2019;Database=EducationProjectDb;User Id=sa;Password=qwerr112358;TrustServerCertificate=True"));
             ConfigurationManager manager = new();
-            services.AddDbContext<UniDbContext>(options => options.UseSqlServer(manager.GetConnectionString("DefaultConnnectionString"))); ""
+            //toDo configManager.getConnectionString() ayrı bir Config classına alınacak
+            services.AddDbContext<UniDbContext>(options => options.UseSqlServer(manager.GetConnectionString("DefaultConnnectionString")));
 
         }
     }
