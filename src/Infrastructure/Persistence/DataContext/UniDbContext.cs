@@ -56,9 +56,9 @@ public partial class UniDbContext : DbContext
 
     public virtual DbSet<Teacher> Teachers { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
-        => optionsBuilder.UseSqlServer("Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=UniDB;");
+    //    => optionsBuilder.UseSqlServer("Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=UniDB;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
