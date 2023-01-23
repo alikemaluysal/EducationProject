@@ -1,14 +1,17 @@
-﻿using Domain.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Domain.Entities;
+
+public partial class Department
 {
-    public class Department : Entity
-    {
-        public string Name { get; set; }
-    }
+    public int Id { get; set; }
+
+    public string Name { get; set; } = null!;
+
+    public virtual ICollection<Degree> Degrees { get; } = new List<Degree>();
+
+    public virtual ICollection<Student> Students { get; } = new List<Student>();
+
+    public virtual ICollection<Teacher> Teachers { get; } = new List<Teacher>();
 }

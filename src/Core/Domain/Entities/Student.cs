@@ -1,13 +1,43 @@
-namespace Domain.Entities
+﻿using System;
+using System.Collections.Generic;
+
+namespace Domain.Entities;
+
+public partial class Student
 {
-    public class Student : Person
-    {
-        public int StudentNo { get; set; }
-        //public ICollection<Grade> ExamGrades { get; set; }
-        //public ICollection<Course> Courses { get; set; }
+    public int Id { get; set; }
 
+    public string FirstName { get; set; } = null!;
 
-        //public int PersonId { get; set; }
-        //public Person Person { get; set; }
-    }
+    public string LastName { get; set; } = null!;
+
+    public string Email { get; set; } = null!;
+
+    public string Phone { get; set; } = null!;
+
+    public int? Major { get; set; }
+
+    public int? Degree { get; set; }
+
+    public virtual ICollection<Advisor> Advisors { get; } = new List<Advisor>();
+
+    public virtual ICollection<Attendance> Attendances { get; } = new List<Attendance>();
+
+    public virtual ICollection<BookstoreOrder> BookstoreOrders { get; } = new List<BookstoreOrder>();
+
+    public virtual ICollection<ClubMembership> ClubMemberships { get; } = new List<ClubMembership>();
+
+    public virtual ICollection<Club> Clubs { get; } = new List<Club>();
+
+    public virtual Degree? DegreeNavigation { get; set; }
+
+    public virtual ICollection<ExamScore> ExamScores { get; } = new List<ExamScore>();
+
+    public virtual ICollection<FinancialAid> FinancialAids { get; } = new List<FinancialAid>();
+
+    public virtual ICollection<Housing> Housings { get; } = new List<Housing>();
+
+    public virtual Department? MajorNavigation { get; set; }
+
+    public virtual ICollection<MealPlan> MealPlans { get; } = new List<MealPlan>();
 }

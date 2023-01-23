@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace Domain.Entities;
 
-public partial class Exam
+public partial class Event
 {
     public int Id { get; set; }
 
-    public int? CourseId { get; set; }
+    public string Name { get; set; } = null!;
 
-    public string Type { get; set; } = null!;
+    public string Description { get; set; } = null!;
 
     public DateTime Date { get; set; }
 
@@ -18,8 +18,4 @@ public partial class Exam
     public TimeSpan EndTime { get; set; }
 
     public string Location { get; set; } = null!;
-
-    public virtual Course? Course { get; set; }
-
-    public virtual ICollection<ExamScore> ExamScores { get; } = new List<ExamScore>();
 }
