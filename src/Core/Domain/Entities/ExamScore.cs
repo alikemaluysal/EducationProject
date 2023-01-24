@@ -4,7 +4,6 @@ namespace Domain.Entities;
 
 public partial class ExamScore : Entity
 {
-
     public Guid? StudentId { get; set; }
 
     public Guid? ExamId { get; set; }

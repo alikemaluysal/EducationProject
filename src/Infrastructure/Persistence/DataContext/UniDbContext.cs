@@ -228,7 +228,7 @@ public partial class UniDbContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("name");
-            entity.Property(e => e.PresidentId).HasColumnName("president");
+            entity.Property(e => e.PresidentId).HasColumnName("presidentId");
 
             entity.HasOne(d => d.PresidentNavigation).WithMany(p => p.Clubs)
                 .HasForeignKey(d => d.PresidentId)
@@ -264,7 +264,7 @@ public partial class UniDbContext : DbContext
                 .ValueGeneratedNever()
                 .HasColumnName("id");
             entity.Property(e => e.Credits).HasColumnName("credits");
-            entity.Property(e => e.InstructorId).HasColumnName("instructor");
+            entity.Property(e => e.InstructorId).HasColumnName("instructorId");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .IsUnicode(false)
@@ -282,7 +282,7 @@ public partial class UniDbContext : DbContext
             entity.Property(e => e.Id)
                 .ValueGeneratedNever()
                 .HasColumnName("id");
-            entity.Property(e => e.DepartmentId).HasColumnName("department");
+            entity.Property(e => e.DepartmentId).HasColumnName("departmentId");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .IsUnicode(false)
