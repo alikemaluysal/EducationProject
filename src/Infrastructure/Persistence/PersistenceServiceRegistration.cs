@@ -5,11 +5,11 @@ using Persistence.Configuration;
 using Persistence.DataContext;
 namespace Persistence.ServiceRegistration
 {
-    public static class ServiceRegistration
+    public static class PersistenceServiceRegistration
     {
         public static void AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<UniDbContext>(options => options.UseSqlServer(ConnectionString.connectionString));
+            services.AddDbContext<UniDbContext>(options => options.UseSqlServer(ConnectionStringConfiguration.connectionString));
             //services.AddDbContext<UniDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnectionString")));            
         }
     }
