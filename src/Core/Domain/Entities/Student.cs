@@ -1,10 +1,10 @@
 ﻿using Domain.Base;
+using Domain.Entities.FileEntities;
 
 namespace Domain.Entities;
 
 public partial class Student : Entity
 {
-
     public string FirstName { get; set; } = null!;
 
     public string LastName { get; set; } = null!;
@@ -13,6 +13,7 @@ public partial class Student : Entity
 
     public string Phone { get; set; } = null!;
 
+    public Guid? ProfilePictureId { get; set; }
     public Guid? MajorDepartmentId { get; set; }
 
     public Guid? DegreeId { get; set; }
@@ -26,7 +27,7 @@ public partial class Student : Entity
     public virtual ICollection<ClubMembership> ClubMemberships { get; } = new List<ClubMembership>();
 
     public virtual ICollection<Club> Clubs { get; } = new List<Club>();
-
+    public virtual ProfilePicture ProfilePicture { get; set; } = null!;
     public virtual Degree? DegreeNavigation { get; set; }
 
     public virtual ICollection<ExamScore> ExamScores { get; } = new List<ExamScore>();

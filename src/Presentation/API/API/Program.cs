@@ -1,4 +1,6 @@
+using API.LoggerConfigurationHandler;
 using Persistence.ServiceRegistration;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddPersistenceServices(builder.Configuration);
+builder.Services.AddHttpLogging();
+builder.Host.UseSerilog(LoggerConfigurationHandler.GetLogger(builder.Configuration));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -17,6 +22,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//TODO --> ConfigureExceptionHandlerExtension
+
 
 app.UseHttpsRedirection();
 
