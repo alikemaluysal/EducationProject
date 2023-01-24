@@ -4,7 +4,6 @@ namespace Domain.Entities;
 
 public partial class Class : Entity
 {
-
     public Guid? CourseId { get; set; }
 
     public string Semester { get; set; } = null!;
