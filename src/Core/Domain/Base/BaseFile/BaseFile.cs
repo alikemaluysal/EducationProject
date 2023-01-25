@@ -1,4 +1,6 @@
-﻿namespace Domain.Base.BaseFile
+﻿using Core.Persistence.Repositories;
+
+namespace Domain.Base.BaseFile
 {
     public abstract class BaseFile : Entity
     {

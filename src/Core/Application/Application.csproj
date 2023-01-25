@@ -1,9 +1,37 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Features\Events\Commands\**" />
+    <Compile Remove="Features\Events\Queries\**" />
+    <Compile Remove="Features\Events\ValidationRules\**" />
+    <Compile Remove="Services\**" />
+    <EmbeddedResource Remove="Features\Events\Commands\**" />
+    <EmbeddedResource Remove="Features\Events\Queries\**" />
+    <EmbeddedResource Remove="Features\Events\ValidationRules\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Features\Events\Commands\**" />
+    <None Remove="Features\Events\Queries\**" />
+    <None Remove="Features\Events\ValidationRules\**" />
+    <None Remove="Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+	  <PackageReference Include="AutoMapper" Version="12.0.0" />
+	  <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+	  <PackageReference Include="MediatR" Version="10.0.1" />
+	  <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework\corePackages\Core.Persistence\Core.Persistence.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
 
 </Project>
