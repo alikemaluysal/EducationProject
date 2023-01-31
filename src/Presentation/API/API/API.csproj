@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Infrastructure\External\External\External.csproj" />
     <ProjectReference Include="..\..\..\Infrastructure\Persistence\Persistence.csproj" />
   </ItemGroup>
 

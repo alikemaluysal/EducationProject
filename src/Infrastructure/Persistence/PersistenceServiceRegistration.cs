@@ -1,10 +1,12 @@
-﻿using DataAccess.Abstract;
+﻿using Application.Repositories;
+using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Configuration;
 using Persistence.DataContext;
+using Persistence.Repositories;
 
 namespace Persistence.ServiceRegistration
 {
@@ -36,6 +38,7 @@ namespace Persistence.ServiceRegistration
             services.AddScoped<IResourceRepository, ResourceRepository>();
             services.AddScoped<IStudentRepository, StudentRepository>();
             services.AddScoped<ITeacherRepository, TeacherRepository>();
+            services.AddScoped<IProfilePictureRepository, ProfilePictureRepository>();
             #endregion
         }
     }

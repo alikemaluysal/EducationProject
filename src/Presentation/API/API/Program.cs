@@ -1,4 +1,6 @@
 using API.LoggerConfigurationHandler;
+using External;
+using External.Services.Storage.Azure;
 using Persistence.ServiceRegistration;
 using Serilog;
 
@@ -11,6 +13,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddPersistenceServices(builder.Configuration);
+builder.Services.AddExternalServices();
+builder.Services.AddStorage<AzureStorage>();
 builder.Services.AddHttpLogging();
 builder.Host.UseSerilog(LoggerConfigurationHandler.GetLogger(builder.Configuration));
 
